@@ -1,12 +1,11 @@
+import Paths from "./routes/Paths"
+
 const App = () => {
   return ( 
     <>
-      Olá mundo!
+      <Paths />
     </>
    );
 }
  
 export default App;
-<>
-  Olá mundo!
-</>
