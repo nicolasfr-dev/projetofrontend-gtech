@@ -29,7 +29,7 @@ const Header = () => {
               <Link to="/cadastro">Cadastre-se</Link>
             </span>
             <Link to="/login">
-              <button className="bg-primary hover:bg-tertiary inline font-semibold w-28 h-10 rounded-lg text-white cursor-pointer">
+              <button className="bg-primary hover:bg-tertiary inline font-semibold w-28 h-10 text-sm rounded-lg text-white cursor-pointer">
                 Entrar
               </button>
             </Link>
