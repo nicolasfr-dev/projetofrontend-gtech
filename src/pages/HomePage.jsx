@@ -7,6 +7,7 @@ import Category from "../components/Category";
 import Camisetas from "../assets/camisetas.svg";
 import Calcas from "../assets/calcas.svg"
 import Headphones from "../assets/headphones.svg"
+import Bone from "../assets/bone.svg"
 import Tenis from "../assets/tenis.svg"
 import ProductCard from "../components/ProductCard";
 
@@ -47,7 +48,7 @@ const HomePage = () => {
           <section className="flex justify-center gap-10">
             <Category image={Camisetas} title={'Camisetas'} />
             <Category image={Calcas} title={'Calça'} />
-            <Category image={Tenis} title={'Boné'} />
+            <Category image={Bone} title={'Boné'} />
             <Category image={Headphones} title={'Headphones'} />
             <Category image={Tenis} title={'Tênis'} />
           </section>
