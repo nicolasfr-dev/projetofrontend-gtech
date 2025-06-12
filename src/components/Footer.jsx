@@ -6,15 +6,12 @@ import Twitter from "../assets/twitter.svg";
 const Footer = () => {
   return (
     <>
-      <footer className="bg-dark-gray text-white p-15 pb-10 w-full ">
-        <section className="gap-30 flex border-b-2 border-dark-gray-2">
+      <footer className="bg-dark-gray text-white pt-15 px-75 pb-10 w-full ">
+        <section className="gap-10 flex border-b-2 border-dark-gray-2">
           <div className="w-full">
-              <img className="pb-5" src={Logo} alt="" />
+              <img className="pb-5 mr-10" src={Logo} alt="" />
             <p className="text-white text-base font-light">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Accusantium cumque voluptate quod eum et atque impedit beatae
-              perspiciatis officia, alias odit fuga magni eveniet obcaecati enim
-              sapiente? Aspernatur, nisi porro.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.
             </p>
 
             <div className="inline-flex gap-3 mt-10">
@@ -24,7 +21,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="ml-30 w-full">
+          <div className="w-3/4">
             <h5 className="font-semibold">Informação</h5>
             <ul className="my-8 font-light space-y-5">
               <li>Sobre Drip Store</li>
@@ -36,7 +33,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="w-full">
+          <div className="w-3/4">
               <h5 className="font-semibold">Categorias</h5>
             <ul className="my-8 font-light space-y-5">
               <li>Camisetas</li>
@@ -47,7 +44,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="w-full">
+          <div className="w-3/4">
               <h5 className="font-semibold">Contato</h5>
             <ul className="my-8 font-light space-y-5">
               <li>Av. Santos Dumont, 1510 - 1 andar - Aldeota, Fortaleza - CE, 60150-161</li>
