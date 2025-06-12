@@ -1,8 +1,8 @@
 const Gallery = () => {
     return ( 
         <> 
-            <figure className="w-full">
-                <img className="w-full" src="public/home-slide-6.jpeg" alt="" />
+            <figure className="w-full overflow-hidden h-180">
+                <img className="w-full" src="/home-slide-6.jpeg" alt="" />
 
             </figure>
         </>
