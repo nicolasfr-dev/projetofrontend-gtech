@@ -1,21 +1,30 @@
+import { Link } from "react-router-dom";
 
-const Section = ({ title, link, content }) => {
+const Section = ({ title, pos = "start", link, content }) => {
+  const isCentered = pos === "center";
+
   return (
-    <>
-      <section className="mb-20">
-        <div className="flex justify-between">
-          <h3 className=" text-2xl mb-2 text-dark-gray-2 font-bold">
-            {title}
-          </h3>
-          <span className="text-primary items-center gap-2 inline-flex text-lg font-normal point cursor-pointer">
-            {link}
-          </span>
+    <section className="mb-20">
+      {(title || link) && (
+        <div
+          className={`flex items-center mb-2 ${
+            isCentered ? "justify-center" : "justify-between"
+          }`}
+        >
+          {title && (
+            <h3 className={`text-2xl text-dark-gray-2 font-bold text-${pos}`}>
+              {title}
+            </h3>
+          )}
+
+          {!isCentered && link && (
+            <div className="ml-4 text-primary">{link}</div>
+          )}
         </div>
+      )}
 
-        {content}
-
-      </section>
-    </>
+      {content}
+    </section>
   );
 };
 
