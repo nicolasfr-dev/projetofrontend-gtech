@@ -11,6 +11,7 @@ import Bone from "../assets/bone.svg";
 import Tenis from "../assets/tenis.svg";
 import ProductCard from "../components/ProductCard";
 import ProductListing from "../components/ProductListing";
+import products from "../data/Products.jsx";
 
 const HomePage = () => {
   return (
@@ -62,70 +63,18 @@ const HomePage = () => {
               Ver tudo <img className="w-5" src={ArrowRight2} alt="" />
             </Link>
           }
-          content={
-            <ProductListing
-              products={
-                <section className="grid grid-cols-4 grid-rows-2 gap-x-10 gap-y-10 justify-items-center items-center w-full">
-                  <ProductCard
-                    image={"/white-sneakers.png"}
-                    category={"Tênis"}
-                    title={"Tênis Nike Air Force 1'07 Masculino White & Red"}
-                    off={30}
-                    price={700}
-                  />
-                  <ProductCard
-                    image={"/k-swiss.png"}
-                    category={"Tênis"}
-                    title={"K-Swiss V8 - Masculino"}
-                    off={50}
-                    price={200}
-                  />
-                  <ProductCard
-                    image={"/k-swiss.png"}
-                    category={"Tênis"}
-                    title={"K-Swiss V8 - Masculino"}
-                    price={200}
-                  />
-                  <ProductCard
-                    image={"/k-swiss.png"}
-                    category={"Tênis"}
-                    title={"K-Swiss V8 - Masculino"}
-                    price={200}
-                  />
-                  <ProductCard
-                    image={"/k-swiss.png"}
-                    category={"Tênis"}
-                    title={"K-Swiss V8 - Masculino"}
-                    price={200}
-                  />
-                  <ProductCard
-                    image={"/k-swiss.png"}
-                    category={"Tênis"}
-                    title={"K-Swiss V8 - Masculino"}
-                    price={200}
-                  />
-                  <ProductCard
-                    image={"/k-swiss.png"}
-                    category={"Tênis"}
-                    title={"K-Swiss V8 - Masculino"}
-                    price={200}
-                  />
-                  <ProductCard
-                    image={"/k-swiss.png"}
-                    category={"Tênis"}
-                    title={"K-Swiss V8 - Masculino"}
-                    price={200}
-                  />
-                </section>
-              }
-            />
-          }
+          content={<ProductListing products={products} />}
         />
       </main>
+
       <section className="w-full h-full pt-30 flex px-75 space-x-20 py-10 bg-white">
         <figure className="w-1/2">
           <div className="w-150 h-150 bg-secondary relative  justify-items-center bg-gradient-to-t from-white from-50% to-170%  content-center rounded-full">
-            <img className="z-10 top-27 scale-125 absolute" src="/air-jordan.png" alt="" />
+            <img
+              className="z-10 top-27 scale-125 absolute"
+              src="/air-jordan.png"
+              alt=""
+            />
           </div>
         </figure>
         <div className="w-1/2">
@@ -134,7 +83,10 @@ const HomePage = () => {
             Air Jordan edição de colecionador
           </h3>
           <p className="text-dark-gray-2 my-10 tracking-wider font-normal text-lg">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip
           </p>
           <button className="bg-primary hover:bg-tertiary inline font-semibold w-60 h-10 text-sm rounded-lg text-white cursor-pointer">
             Ver oferta

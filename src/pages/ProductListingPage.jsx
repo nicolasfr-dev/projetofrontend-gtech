@@ -5,6 +5,7 @@ import ArrowRight2 from "../assets/arrow-right-2.svg";
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import FilterGroup from "../components/FilterGroup";
+import products from "../data/Products";
 
 const ProductListingPage = () => {
   const [selectedFilters, setSelectedFilters] = useState({});
@@ -68,9 +69,9 @@ const ProductListingPage = () => {
                 />
 
                 <FilterGroup
-                  title="Gênero"
+                  title="Estado"
                   type="radio"
-                  option={["Novos", "Usado"]}
+                  option={["Novo", "Usado"]}
                   onChange={handleFilterChange}
                 />
               </div>
@@ -79,62 +80,7 @@ const ProductListingPage = () => {
 
           <Section
             content={
-              <ProductListing
-                products={
-                  <section className="grid grid-cols-3 gap-x-5 gap-y-10 w-full">
-                    <ProductCard
-                      image={"/white-sneakers.png"}
-                      category={"Tênis"}
-                      title={"Tênis Nike Air Force 1'07 Masculino White & Red"}
-                      off={30}
-                      price={700}
-                    />
-                    <ProductCard
-                      image={"/k-swiss.png"}
-                      category={"Tênis"}
-                      title={"K-Swiss V8 - Masculino"}
-                      off={50}
-                      price={200}
-                    />
-                    <ProductCard
-                      image={"/k-swiss.png"}
-                      category={"Tênis"}
-                      title={"K-Swiss V8 - Masculino"}
-                      price={200}
-                    />
-                    <ProductCard
-                      image={"/k-swiss.png"}
-                      category={"Tênis"}
-                      title={"K-Swiss V8 - Masculino"}
-                      price={200}
-                    />
-                    <ProductCard
-                      image={"/k-swiss.png"}
-                      category={"Tênis"}
-                      title={"K-Swiss V8 - Masculino"}
-                      price={200}
-                    />
-                    <ProductCard
-                      image={"/k-swiss.png"}
-                      category={"Tênis"}
-                      title={"K-Swiss V8 - Masculino"}
-                      price={200}
-                    />
-                    <ProductCard
-                      image={"/k-swiss.png"}
-                      category={"Tênis"}
-                      title={"K-Swiss V8 - Masculino"}
-                      price={200}
-                    />
-                    <ProductCard
-                      image={"/k-swiss.png"}
-                      category={"Tênis"}
-                      title={"K-Swiss V8 - Masculino"}
-                      price={200}
-                    />
-                  </section>
-                }
-              />
+              <ProductListing products={products} />
             }
           />
         </div>

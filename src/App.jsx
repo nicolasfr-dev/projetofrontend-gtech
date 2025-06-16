@@ -1,12 +1,12 @@
-import Paths from "./routes/Paths"
-import './index.css'
+import Paths from "./routes/Paths";
+import "./index.css";
 
 const App = () => {
-  return ( 
+  return (
     <>
       <Paths />
     </>
-   );
-}
- 
+  );
+};
+
 export default App;

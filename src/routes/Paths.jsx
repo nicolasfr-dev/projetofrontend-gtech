@@ -17,7 +17,7 @@ const Paths = () => {
             <Route path="/produtos" element={<ProductListingPage />} />
             <Route path="/cadastro" element={<CreateAccountPage />} />
             <Route path="/login" element={<LoginPage />} />
-            <Route path='/produto/:id' element={<ProductViewPage />} />
+            <Route path="/produto/:id/:srk" element={<ProductViewPage />} />
             <Route path="/pedidos" element={<OrderPage />} />
           </Route>
         </Routes>

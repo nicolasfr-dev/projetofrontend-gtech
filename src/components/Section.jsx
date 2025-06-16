@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 
 const Section = ({ title, pos = "start", link, content }) => {
-  const isCentered = pos === "center";
+  const isCentered = pos === "center"; //verifica se o parâmetro {pos} está definido como centralizado.
 
   return (
     <section className="mb-20">
-      {(title || link) && (
+      {(title || link) && ( //checa se tem título ou link, se não, não os renderiza.
         <div
           className={`flex items-center mb-2 ${
             isCentered ? "justify-center" : "justify-between"
