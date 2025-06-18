@@ -80,7 +80,7 @@ const ProductListingPage = () => {
 
           <Section
             content={
-              <ProductListing products={products} />
+              <ProductListing preset="3xAll" products={products} />
             }
           />
         </div>

@@ -5,18 +5,24 @@ import Gallery from "../components/Gallery";
 import ArrowRight2 from "../assets/arrow-right-2.svg";
 import Category from "../components/Category";
 import Camisetas from "../assets/camisetas.svg";
+import CamisetasA from "../assets/camisetas-a.svg";
 import Calcas from "../assets/calcas.svg";
+import CalcasA from "../assets/calcas-a.svg"
 import Headphones from "../assets/headphones.svg";
+import HeadphonesA from "../assets/headphones-a.svg";
 import Bone from "../assets/bone.svg";
+import BoneA from "../assets/bone-a.svg";
 import Tenis from "../assets/tenis.svg";
-import ProductCard from "../components/ProductCard";
+import TenisA from "../assets/tenis-a.svg";
 import ProductListing from "../components/ProductListing";
 import products from "../data/Products.jsx";
 
 const HomePage = () => {
   return (
     <>
-      <Gallery />
+      <Gallery
+        images={["/home-slide-1.jpeg","/home-slide-2.jpeg","/home-slide-3.jpeg","/home-slide-4.jpeg","/home-slide-5.jpeg","/home-slide-6.jpeg","/home-slide-7.jpeg","/home-slide-8.jpeg"]}
+      />
       <main className="px-75 pt-7 bg-light-gray-3 pb-5">
         <Section
           title="Coleções em destaque"
@@ -47,11 +53,11 @@ const HomePage = () => {
           pos="center"
           content={
             <section className="flex justify-center gap-10">
-              <Category image={Camisetas} title={"Camisetas"} />
-              <Category image={Calcas} title={"Calça"} />
-              <Category image={Bone} title={"Boné"} />
-              <Category image={Headphones} title={"Headphones"} />
-              <Category image={Tenis} title={"Tênis"} />
+              <Category image={Camisetas} hover={CamisetasA} title={"Camisetas"} />
+              <Category image={Calcas} hover={CalcasA} title={"Calça"} />
+              <Category image={Bone} hover={BoneA} title={"Boné"} />
+              <Category image={Headphones} hover={HeadphonesA} title={"Headphones"} />
+              <Category image={Tenis} hover={TenisA} title={"Tênis"} />
             </section>
           }
         />
@@ -63,7 +69,7 @@ const HomePage = () => {
               Ver tudo <img className="w-5" src={ArrowRight2} alt="" />
             </Link>
           }
-          content={<ProductListing products={products} />}
+          content={<ProductListing preset="4x2" products={products} />}
         />
       </main>
 
