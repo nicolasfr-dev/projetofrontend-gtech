@@ -1,5 +1,7 @@
-import { useParams, Link } from "react-router-dom";
-import products from "../data/Products"; // caminho correto para seu array
+import { useParams, useNavigate, Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+
+import products from "../data/Products"; 
 import BuyBox from "../components/BuyBox";
 import ProductGallery from "../components/ProductGallery";
 import ProductListing from "../components/ProductListing";
@@ -8,13 +10,18 @@ import ArrowRight2 from "../assets/arrow-right-2.svg";
 
 const ProductViewPage = () => {
   const { id, sku } = useParams();
+  const navigate = useNavigate();
 
   const productId = parseInt(id);
-
   const product = products.find((p) => p.id === productId);
-  const variant = product?.colors.find((c) => c.sku === sku);
 
-  if (!product || !variant) {
+  const [selectedSku, setSelectedSku] = useState(sku);
+
+  useEffect(() => {
+    setSelectedSku(sku);
+  }, [sku]);
+
+  if (!product) {
     return (
       <div className="p-8 text-center text-red-500 font-bold">
         Produto não encontrado
@@ -22,28 +29,36 @@ const ProductViewPage = () => {
     );
   }
 
+  const variant = product.colors.find((c) => c.sku === selectedSku) || product.colors[0];
+
+  const handleColorSelect = (index) => {
+    const newVariant = product.colors[index];
+    if (!newVariant) return;
+
+    setSelectedSku(newVariant.sku);
+
+    navigate(`/produto/${product.id}/${newVariant.sku}`);
+  };
+
   return (
     <>
       <main className="px-75 bg-light-gray-3 py-10 gap-10">
         <section className="flex pb-5">
-
-          <section className="w-full lg:w-1/2">
-            <ProductGallery image={variant.image} alt={product.name} />
+          <section className="w-1/2 h-full">
+            <ProductGallery image={variant.image} alt={`${product.name} - ${variant.color}`} />
           </section>
 
           <BuyBox
-            productId={product.id}
-            name={`${product.name} - ${variant.color}`}
-            rating={variant.rating}
+            id={product.id}
+            name={product.name}
             reference={variant.reference}
             price={product.price}
             off={variant.off}
             tags={product.tags}
-            image={variant.image}
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco."
             colors={product.colors}
-            onColorSelect={(index) => {
-            }}
+            description={product.description}
+            onColorSelect={handleColorSelect}
+            selectedSku={selectedSku} 
           />
         </section>
 
@@ -62,4 +77,5 @@ const ProductViewPage = () => {
     </>
   );
 };
+
 export default ProductViewPage;

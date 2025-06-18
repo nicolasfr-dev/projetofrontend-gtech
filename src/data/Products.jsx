@@ -4,6 +4,7 @@ const products = [
     name: "Tênis Nike Air Jordan 1",
     price: 599.9,
     category: "Tênis",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
     tags: ["Unissex", "Novos", "Nike", "Casual"],
     colors: [
       {
@@ -41,6 +42,7 @@ const products = [
     name: "Tênis K-Swiss V8 - Masculino",
     price: 199.99,
     category: "Tênis",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
     tags: ["K-Swiss", "Masculino", "Usado", "Corrida"],
     colors: [
       {
@@ -60,6 +62,7 @@ const products = [
     name: "Tênis SB Dunk High Pro",
     price: 499.99,
     category: "Tênis",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
     tags: ["Nike", "Unissex", "Novo", "Esporte"],
     colors: [
       {
@@ -78,6 +81,7 @@ const products = [
     name: "Tênis Karhu Synchron",
     price: 349.99,
     category: "Tênis",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
     tags: ["Karhu", "Masculino", "Usado", "Corrida"],
     colors: [
       {
@@ -97,6 +101,7 @@ const products = [
     name: "Tênis Nike Air Max 1",
     price: 799.99,
     category: "Tênis",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
     tags: ["Nike", "Masculino", "Novo", "Corrida"],
     colors: [
       {
@@ -116,6 +121,7 @@ const products = [
     name: "Tênis Nike Air Force 1",
     price: 799.99,
     category: "Tênis",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
     tags: ["Nike", "Masculino", "Novo", "Casual"],
     colors: [
       {
