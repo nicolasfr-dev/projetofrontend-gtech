@@ -4,8 +4,8 @@ import HomePage from "../pages/HomePage";
 import ProductListingPage from "../pages/ProductListingPage";
 import CreateAccountPage from "../pages/CreateAccountPage";
 import LoginPage from "../pages/LoginPage";
-import ProductViewPage from "../pages/ProductViewPage";
 import OrderPage from "../pages/OrdersPage";
+import ProductViewPage from "../pages/ProductViewPage";
 
 const Paths = () => {
   return (
@@ -17,7 +17,7 @@ const Paths = () => {
             <Route path="/produtos" element={<ProductListingPage />} />
             <Route path="/cadastro" element={<CreateAccountPage />} />
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/produto/:id/:srk" element={<ProductViewPage />} />
+            <Route path="/produto/:id/:sku" element={<ProductViewPage />} />
             <Route path="/pedidos" element={<OrderPage />} />
           </Route>
         </Routes>

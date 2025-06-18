@@ -1,22 +1,38 @@
 import ProductCard from "../components/ProductCard";
 
-const ProductListing = ({ products, grid }) => {
+const presets = {
+  "3xAll": { class: "grid-cols-3", limit: null },
+  "4x2": { class: "grid-cols-4", limit: 8 },
+  "4x1": { class: "grid-cols-4", limit: 4 },
+};
+
+const ProductListing = ({ products, preset = "3xAll" }) => {
+  const { class: gridClass, limit } = presets[preset] || presets["3xAll"];
+
+  // Junta cada variação (SKU) com os dados do produto pai
+  const allVariants = products.flatMap((product) =>
+    product.colors.map((variant) => ({
+      ...product,
+      ...variant,
+    }))
+  );
+
+  const visibleVariants = limit ? allVariants.slice(0, limit) : allVariants;
+
   return (
-    <section className="grid grid-cols-3 gap-6">
-      {products.map((product) =>
-        product.colors.map((variant) => (
-          <ProductCard
-            key={`${product.id}-${variant.sku}`}
-            id={product.id}
-            sku={variant.sku}
-            image={variant.image}
-            category={product.category}
-            title={`${product.name} - ${variant.color}`}
-            price={product.price}
-            off={product.off}
-          />
-        ))
-      )}
+    <section className={`grid ${gridClass} gap-6`}>
+      {visibleVariants.map((variant) => (
+        <ProductCard
+          key={`${variant.id}-${variant.sku}`}
+          id={variant.id}
+          sku={variant.sku}
+          image={variant.image}
+          category={variant.category}
+          title={`${variant.name} - ${variant.color}`}
+          price={variant.price}
+          off={variant.off}
+        />
+      ))}
     </section>
   );
 };
