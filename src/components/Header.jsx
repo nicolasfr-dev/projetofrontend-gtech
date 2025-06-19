@@ -1,64 +1,84 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { useState } from "react";
 import Logo from "../assets/logo-header.svg";
 import Cart from "../assets/mini-cart.svg";
 import Search from "../assets/search-icon.svg";
 
 const Header = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const navigate = useNavigate();
+
+  const handleSearch = (e) => {
+    if (e.key === "Enter" && searchTerm.trim()) {
+      navigate(`/produtos?search=${encodeURIComponent(searchTerm.trim())}`);
+    }
+  };
+
   return (
-    <>
-      <header className="bg-white w-full px-22 pt-7 pb-5">
-        <div className="flex justify-between w-full items-center">
-          <Link to={"/"}>
-            <img src={Logo} alt="Logo loja" />
-          </Link>
+    <header className="bg-white w-full px-75 pt-7 pb-5">
+      <div className="flex justify-between w-full items-center">
+        <Link to={"/"}>
+          <img src={Logo} alt="Logo loja" />
+        </Link>
 
-          <div className="relative flex items-center focus-within:text-primary ">
-            <img
-              src={Search}
-              className="absolute items-end right-5 text-light-gray-2 pointer-events-none fill-primary"
-            />
-            <input
-              className="bg-light-gray-3 text-dark-gray-2 rounded-md w-5xl h-15 p-5 placeholder:text-light-gray focus:outline-1 focus:outline-primary"
-              type="text"
-              placeholder="Pesquisar produto..."
-            />
-          </div>
+        <div className="relative flex items-center focus-within:text-primary">
+          <img
+            src={Search}
+            className="absolute right-5 pointer-events-none"
+            alt="Ícone de busca"
+          />
+          <input
+            className="bg-light-gray-3 text-dark-gray-2 rounded-md w-xl h-15 p-5 placeholder:text-light-gray focus:outline-1 focus:outline-primary"
+            type="text"
+            placeholder="Pesquisar produto..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            onKeyDown={handleSearch}
+          />
+        </div>
 
-          <div className="flex gap-8 mx-10 items-center">
-            <span className=" text-dark-gray underline">
-              <Link to="/cadastro">Cadastre-se</Link>
-            </span>
-            <Link to="/login">
-              <button className="bg-primary hover:bg-tertiary inline font-semibold w-28 h-10 text-sm rounded-lg text-white cursor-pointer">
-                Entrar
-              </button>
-            </Link>
-          </div>
-
-          <Link to="/carrinho">
-            <button className="ml-20 cursor-pointer">
-              <img src={Cart} alt="" />
+        <div className="flex gap-8 ml-10 items-center">
+          <span className="text-dark-gray underline">
+            <Link to="/cadastro">Cadastre-se</Link>
+          </span>
+          <Link to="/login">
+            <button className="bg-primary hover:bg-tertiary font-semibold w-28 h-10 text-sm rounded-lg text-white cursor-pointer">
+              Entrar
             </button>
           </Link>
         </div>
-        <nav className="mt-5">
-          <ul className="flex gap-4 ">
-            <li className="hover:text-primary">
-              <NavLink className={({ isActive }) => isActive ? "text-primary font-bold border-b-2" : "text-dark-gray"} to={"/"}>Home</NavLink>
+
+        <Link to="/carrinho">
+          <button className="ml-20 cursor-pointer">
+            <img src={Cart} alt="Carrinho" />
+          </button>
+        </Link>
+      </div>
+
+      <nav className="mt-5">
+        <ul className="flex gap-8">
+          {[
+            { to: "/", label: "Home" },
+            { to: "/produtos", label: "Produtos" },
+            { to: "/categorias", label: "Categorias" },
+            { to: "/pedidos", label: "Meus Pedidos" },
+          ].map(({ to, label }) => (
+            <li key={to} className="hover:text-primary">
+              <NavLink
+                to={to}
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-primary font-bold border-b-2"
+                    : "text-dark-gray"
+                }
+              >
+                {label}
+              </NavLink>
             </li>
-            <li className="hover:text-primary">
-              <NavLink className={({ isActive }) => isActive ? "text-primary font-bold border-b-2" : "text-dark-gray"} to={"/produtos"}>Produtos</NavLink>
-            </li>
-            <li className="hover:text-primary">
-              <NavLink className={({ isActive }) => isActive ? "text-primary font-bold border-b-2" : "text-dark-gray"} to={"/categorias"}>Categorias</NavLink>
-            </li>
-            <li className="hover:text-primary">
-              <NavLink className={({ isActive }) => isActive ? "text-primary font-bold border-b-2" : "text-dark-gray"} to={"/pedidos"}>Meus Pedidos</NavLink>
-            </li>
-          </ul>
-        </nav>
-      </header>
-    </>
+          ))}
+        </ul>
+      </nav>
+    </header>
   );
 };
 
