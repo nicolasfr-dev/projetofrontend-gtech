@@ -57,13 +57,13 @@ const Gallery = ({ images = [], interval = 5000 }) => {
       {/* Botões */}
       <button
         onClick={prevImage}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-3 pr-2 bg-white/70 hover:bg-white rounded-full"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-3 pr-2 bg-white/70 hover:bg-white hover:scale-105 rounded-full"
       >
         <img src={ArrowLeft} alt="Anterior" className="w-6 h-6" />
       </button>
       <button
         onClick={nextImage}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-3 pr-2 bg-white/70 hover:bg-white rounded-full"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-3 pr-2 bg-white/70 hover:bg-white hover:scale-105 rounded-full"
       >
         <img src={ArrowRight} alt="Próximo" className="w-6 h-6" />
       </button>

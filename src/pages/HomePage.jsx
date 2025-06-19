@@ -94,9 +94,12 @@ const HomePage = () => {
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
             aliquip
           </p>
-          <button className="bg-primary hover:bg-tertiary inline font-semibold w-60 h-10 text-sm rounded-lg text-white cursor-pointer">
-            Ver oferta
-          </button>
+          <Link to={'produto/1/AIR_JORDAN_CHICAGO'}>
+            <button className="bg-primary hover:bg-tertiary inline font-semibold w-60 h-10 text-sm rounded-lg text-white cursor-pointer">
+              Ver oferta
+            </button>
+          </Link>
+
         </div>
       </section>
     </>

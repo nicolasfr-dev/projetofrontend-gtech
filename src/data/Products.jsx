@@ -43,7 +43,7 @@ const products = [
     price: 199.99,
     category: "Tênis",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
-    tags: ["K-Swiss", "Masculino", "Usado", "Corrida"],
+    tags: ["K-Swiss", "Masculino", "Usado", "Corrida", "Esporte e lazer"],
     colors: [
       {
         reference: "00000004",
@@ -63,7 +63,7 @@ const products = [
     price: 499.99,
     category: "Tênis",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
-    tags: ["Nike", "Unissex", "Novo", "Esporte"],
+    tags: ["Nike", "Unissex", "Novo", "Casual"],
     colors: [
       {
         reference: "00000005",
@@ -82,7 +82,7 @@ const products = [
     price: 349.99,
     category: "Tênis",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
-    tags: ["Karhu", "Masculino", "Usado", "Corrida"],
+    tags: ["Karhu", "Masculino", "Usado", "Corrida", "Esporte e lazer"],
     colors: [
       {
         reference: "00000006",
@@ -102,7 +102,7 @@ const products = [
     price: 799.99,
     category: "Tênis",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
-    tags: ["Nike", "Masculino", "Novo", "Corrida"],
+    tags: ["Nike", "Masculino", "Novo", "Corrida", "Esporte e lazer"],
     colors: [
       {
         reference: "00000007",
