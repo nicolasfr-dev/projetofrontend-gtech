@@ -10,7 +10,7 @@ const products = [
       {
         reference: "00000001",
         color: "Red Mint",
-        image: "/product-thumb-1.png",
+        images: ["/product-thumb-1.png","/product-image-1-3.jpeg","/product-image-2.jpeg","/product-image-3.jpeg","/product-image-4.jpeg"],
         off: 25,
         sku: "AIR_JORDAN_RED_MINT",
         rating: "4.7",
@@ -20,7 +20,7 @@ const products = [
       {
         reference: "00000002",
         color: "Chicago",
-        image: "/product-thumb-1-2.png",
+        images: ["/product-thumb-1-2.png","/product-image-1-3.jpeg","/product-image-2.jpeg","/product-image-3.jpeg","/product-image-4.jpeg"],
         sku: "AIR_JORDAN_CHICAGO",
         rating: "4.8",
         sizes: ["40", "41", "42", "43"],
@@ -29,7 +29,7 @@ const products = [
       {
         reference: "00000003",
         color: "Branco e Verde",
-        image: "/product-thumb-1-3.png",
+        images: ["/product-thumb-1-3.png","/product-image-1-3.jpeg","/product-image-2.jpeg","/product-image-3.jpeg","/product-image-4.jpeg"],
         sku: "AIR_JORDAN_BRANCO_VERDE",
         rating: "4.9",
         sizes: ["40", "41", "42"],
@@ -48,7 +48,7 @@ const products = [
       {
         reference: "00000004",
         color: "Branco",
-        image: "/product-thumb-2.png",
+        images: ["/product-thumb-2.png","/product-image-1-3.jpeg","/product-image-2.jpeg","/product-image-3.jpeg","/product-image-4.jpeg"],
         off: 50,
         sku: "TENIS-K-SWISS_V8",
         rating: "3.7",
@@ -68,7 +68,7 @@ const products = [
       {
         reference: "00000005",
         color: "Spectrum",
-        image: "/product-thumb-3.png",
+        images: ["/product-thumb-3.png","/product-image-1-3.jpeg","/product-image-2.jpeg","/product-image-3.jpeg","/product-image-4.jpeg"],
         sku: "SB-DUNK-HIGH-PRO-SPECTRUM",
         rating: "4.3",
         sizes: ["40", "43", "44"],
@@ -87,7 +87,7 @@ const products = [
       {
         reference: "00000006",
         color: "Blue Coral/ Glazed Ginger",
-        image: "/product-thumb-4.png",
+        images: ["/product-thumb-4.png","/product-image-1-3.jpeg","/product-image-2.jpeg","/product-image-3.jpeg","/product-image-4.jpeg"],
         off: 10,
         sku: "KARHU-SYNCHRON",
         rating: "3.5",
@@ -107,7 +107,7 @@ const products = [
       {
         reference: "00000007",
         color: "Magma Orange",
-        image: "/product-thumb-5.png",
+        images: ["/product-thumb-5.png","/product-image-1-3.jpeg","/product-image-2.jpeg","/product-image-3.jpeg","/product-image-4.jpeg"],
         off: 15,
         sku: "AIR-MAX-1-MAGMA-ORANGE",
         rating: "4.7",
@@ -127,7 +127,7 @@ const products = [
       {
         reference: "00000008",
         color: "Branco e Vermelho",
-        image: "/product-thumb-6.png",
+        images: ["/product-thumb-6.png","/product-image-1-3.jpeg","/product-image-2.jpeg","/product-image-3.jpeg","/product-image-4.jpeg"],
         sku: "AIR-FORCE-1-BRANCO-VERMELHO",
         rating: "4.2",
         sizes: ["37", "38", "42", "44", "45"],
@@ -136,7 +136,7 @@ const products = [
       {
         reference: "00000009",
         color: "Branco",
-        image: "/product-thumb-6-2.png",
+        images: ["/product-thumb-6-2.png","/product-image-1-3.jpeg","/product-image-2.jpeg","/product-image-3.jpeg","/product-image-4.jpeg"],
         sku: "AIR-FORCE-1-BRANCO",
         rating: "5.0",
         sizes: ["36", "37", "39", "40"],

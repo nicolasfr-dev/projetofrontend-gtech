@@ -1,7 +1,7 @@
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-import products from "../data/Products"; 
+import products from "../data/Products";
 import BuyBox from "../components/BuyBox";
 import ProductGallery from "../components/ProductGallery";
 import ProductListing from "../components/ProductListing";
@@ -29,7 +29,8 @@ const ProductViewPage = () => {
     );
   }
 
-  const variant = product.colors.find((c) => c.sku === selectedSku) || product.colors[0];
+  const variant =
+    product.colors.find((c) => c.sku === selectedSku) || product.colors[0];
 
   const handleColorSelect = (index) => {
     const newVariant = product.colors[index];
@@ -45,7 +46,11 @@ const ProductViewPage = () => {
       <main className="px-75 bg-light-gray-3 py-10 gap-10">
         <section className="flex pb-5">
           <section className="w-1/2 h-full">
-            <ProductGallery image={variant.image} alt={`${product.name} - ${variant.color}`} />
+            <ProductGallery
+              images={variant.images || [variant.image]} // caso você ainda tenha só uma imagem
+              radius="rounded-xl"
+              showThumbs={true}
+            />
           </section>
 
           <BuyBox
@@ -58,7 +63,7 @@ const ProductViewPage = () => {
             colors={product.colors}
             description={product.description}
             onColorSelect={handleColorSelect}
-            selectedSku={selectedSku} 
+            selectedSku={selectedSku}
           />
         </section>
 

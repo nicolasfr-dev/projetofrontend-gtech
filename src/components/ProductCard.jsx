@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 
-const ProductCard = ({ id, sku, image, category, title, price, off }) => {
+const ProductCard = ({ id, sku, images = [], category, title, price, off }) => {
   const ogPrice = parseFloat(price);
   const hasDiscount = !!off;
   const discount = hasDiscount ? (ogPrice * off) / 100 : 0;
   const priceOff = ogPrice - discount;
+
+  const image = images?.[0]; // Pega a primeira imagem ou undefined
 
   return (
     <Link to={`/produto/${id}/${sku}`}>
@@ -15,12 +17,14 @@ const ProductCard = ({ id, sku, image, category, title, price, off }) => {
               {off}% OFF
             </span>
           )}
-          <img
-            loading="lazy"
-            className="object-fit overflow-hidden rounded-sm transition-transform duration-300 group-hover:scale-110"
-            src={image}
-            alt={title}
-          />
+          {image && (
+            <img
+              loading="lazy"
+              className="object-fit overflow-hidden rounded-sm transition-transform duration-300 group-hover:scale-110"
+              src={image}
+              alt={title}
+            />
+          )}
         </div>
 
         <div className="mt-2 select-text">

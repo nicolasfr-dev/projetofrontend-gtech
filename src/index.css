@@ -2,7 +2,6 @@
 @import "tailwindcss";
 * {
     font-family: Inter, sans-serif ;
-    transition: 100ms;
 }
 
 @theme {
