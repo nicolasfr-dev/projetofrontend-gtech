@@ -39,9 +39,9 @@ const Header = () => {
 
         <div className="flex gap-8 ml-10 items-center">
           <span className="text-dark-gray underline">
-            <Link to="/cadastro">Cadastre-se</Link>
+            <Link to="/user/cadastro">Cadastre-se</Link>
           </span>
-          <Link to="/login">
+          <Link to="/user/login">
             <button className="bg-primary hover:bg-tertiary font-semibold w-28 h-10 text-sm rounded-lg text-white cursor-pointer">
               Entrar
             </button>

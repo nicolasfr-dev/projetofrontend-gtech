@@ -7,6 +7,8 @@ import CreateAccountPage from "../pages/CreateAccountPage";
 import LoginPage from "../pages/LoginPage";
 import OrderPage from "../pages/OrdersPage";
 import ProductViewPage from "../pages/ProductViewPage";
+import PageLayoutLogin from "../layouts/PageLayoutLogin";
+import ForgotPassword from "../pages/ForgotPassword";
 
 const ScrollToTop = () => {
   const location = useLocation();
@@ -26,11 +28,14 @@ const Paths = () => {
         <Route path="/" element={<PageLayout />}>
           <Route index element={<HomePage />} />
           <Route path="/produtos" element={<ProductListingPage />} />
-          <Route path="/cadastro" element={<CreateAccountPage />} />
-          <Route path="/login" element={<LoginPage />} />
           <Route path="/produto/:id/:sku" element={<ProductViewPage />} />
           <Route path="/pedidos" element={<OrderPage />} />
         </Route>
+        <Route path="/user" element={<PageLayoutLogin />}>
+            <Route path="/user/login" element={<LoginPage />} />
+            <Route path="/user/cadastro" element={<CreateAccountPage />} />
+            <Route path="/user/resgatarsenha" element={<ForgotPassword />} />
+          </Route>
       </Routes>
     </BrowserRouter>
   );
