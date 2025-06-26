@@ -31,7 +31,6 @@ const ProductGallery = ({ images = [], radius = "rounded-md", showThumbs = true 
 
   return (
     <div className="w-full" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
-      {/* Galeria principal */}
       <div className={`relative aspect-square bg-secondary overflow-hidden ${radius}`}>
         <div
           className="flex h-full transition-transform duration-700 ease-in-out"
@@ -56,7 +55,6 @@ const ProductGallery = ({ images = [], radius = "rounded-md", showThumbs = true 
           ))}
         </div>
 
-        {/* Botões */}
         <button
           onClick={prevImage}
           className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-3 pr-2 bg-white/70 hover:bg-white hover:scale-105 rounded-full"

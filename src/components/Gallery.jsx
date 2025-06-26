@@ -54,7 +54,6 @@ const Gallery = ({ images = [], interval = 5000 }) => {
         ))}
       </div>
 
-      {/* Botões */}
       <button
         onClick={prevImage}
         className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-3 pr-2 bg-white/70 hover:bg-white hover:scale-105 rounded-full"
@@ -68,7 +67,6 @@ const Gallery = ({ images = [], interval = 5000 }) => {
         <img src={ArrowRight} alt="Próximo" className="w-6 h-6" />
       </button>
 
-      {/* Indicadores */}
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
         {images.map((_, index) => (
           <button

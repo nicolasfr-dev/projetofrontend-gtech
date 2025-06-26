@@ -9,6 +9,12 @@ import OrderPage from "../pages/OrdersPage";
 import ProductViewPage from "../pages/ProductViewPage";
 import PageLayoutLogin from "../layouts/PageLayoutLogin";
 import ForgotPassword from "../pages/ForgotPassword";
+import CarrinhoPage from "../pages/CarrinhoPage";
+import CarrinhoConfirm from "../components/CarrinhoConfirm";
+import { CarrinhoProvider } from "../data/context/CarrinhoContext.jsx";
+import NotFoundPage from "../pages/NotFoundPage.jsx";
+import CarrinhoSucess from "../pages/CarrinhoSucess.jsx";
+
 
 const ScrollToTop = () => {
   const location = useLocation();
@@ -22,22 +28,29 @@ const ScrollToTop = () => {
 
 const Paths = () => {
   return (
-    <BrowserRouter>
-      <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<PageLayout />}>
-          <Route index element={<HomePage />} />
-          <Route path="/produtos" element={<ProductListingPage />} />
-          <Route path="/produto/:id/:sku" element={<ProductViewPage />} />
-          <Route path="/pedidos" element={<OrderPage />} />
-        </Route>
-        <Route path="/user" element={<PageLayoutLogin />}>
+    <CarrinhoProvider>
+      <BrowserRouter>
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<PageLayout />}>
+            <Route index element={<HomePage />} />
+            <Route path="/produtos" element={<ProductListingPage />} />
+            <Route path="/produto/:id/:sku" element={<ProductViewPage />} />
+            <Route path="/pedidos" element={<OrderPage />} />
+            <Route path="/carrinho" element={<CarrinhoPage />} />
+            <Route path="/carrinho/confirm" element={<CarrinhoConfirm />} />
+            <Route path="/carrinho/sucess" element={<CarrinhoSucess />} />
+            <Route path="*" element={<NotFoundPage />}/>
+          </Route>
+          <Route path="/user" element={<PageLayoutLogin />}>
             <Route path="/user/login" element={<LoginPage />} />
             <Route path="/user/cadastro" element={<CreateAccountPage />} />
             <Route path="/user/resgatarsenha" element={<ForgotPassword />} />
+            <Route path="*" element={<NotFoundPage />}/>
           </Route>
-      </Routes>
-    </BrowserRouter>
+        </Routes>
+      </BrowserRouter>
+    </CarrinhoProvider>
   );
 };
 

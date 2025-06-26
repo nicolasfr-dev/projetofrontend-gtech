@@ -1,8 +1,8 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Logo from "../assets/logo-header.svg";
-import Cart from "../assets/mini-cart.svg";
 import Search from "../assets/search-icon.svg";
+import CarrinhoList from "./CarrinhoList";
 
 const Header = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -28,7 +28,7 @@ const Header = () => {
             alt="Ícone de busca"
           />
           <input
-            className="bg-light-gray-3 text-dark-gray-2 rounded-md w-xl h-15 p-5 placeholder:text-light-gray focus:outline-1 focus:outline-primary"
+            className="bg-light-gray-3 text-dark-gray-2 ml-2 rounded-md w-lg h-15 p-5 placeholder:text-light-gray focus:outline-1 focus:outline-primary"
             type="text"
             placeholder="Pesquisar produto..."
             value={searchTerm}
@@ -37,7 +37,7 @@ const Header = () => {
           />
         </div>
 
-        <div className="flex gap-8 ml-10 items-center">
+        <div className="flex gap-8 items-center">
           <span className="text-dark-gray underline">
             <Link to="/user/cadastro">Cadastre-se</Link>
           </span>
@@ -48,11 +48,9 @@ const Header = () => {
           </Link>
         </div>
 
-        <Link to="/carrinho">
-          <button className="ml-20 cursor-pointer">
-            <img src={Cart} alt="Carrinho" />
-          </button>
-        </Link>
+        <div className="ml-20">
+          <CarrinhoList />
+        </div>
       </div>
 
       <nav className="mt-5">
@@ -74,6 +72,7 @@ const Header = () => {
               >
                 {label}
               </NavLink>
+              
             </li>
           ))}
         </ul>
