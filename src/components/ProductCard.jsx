@@ -6,11 +6,11 @@ const ProductCard = ({ id, sku, images = [], category, title, price, off }) => {
   const discount = hasDiscount ? (ogPrice * off) / 100 : 0;
   const priceOff = ogPrice - discount;
 
-  const image = images?.[0]; // Pega a primeira imagem ou undefined
+  const image = images?.[0];
 
   return (
     <Link to={`/produto/${id}/${sku}`}>
-      <div className="w-75 h-100 flex flex-col justify-between select-none">
+      <div className="w-70 h-90 flex flex-col justify-between select-none">
         <div className="relative bg-white rounded-sm h-full flex justify-center items-center overflow-hidden group">
           {hasDiscount && (
             <span className="absolute text-sm top-5 left-5 font-bold py-1 px-3 rounded-2xl bg-off text-dark-gray-2">

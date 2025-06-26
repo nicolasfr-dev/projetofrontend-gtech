@@ -9,7 +9,6 @@ const presets = {
 const ProductListing = ({ products, preset = "3xAll" }) => {
   const { class: gridClass, limit } = presets[preset] || presets["3xAll"];
 
-  // Gera uma lista de variantes individuais, combinando dados do produto e da variante
   const allVariants = products.flatMap((product) =>
     product.colors.map((variant) => ({
       ...product,
@@ -23,10 +22,10 @@ const ProductListing = ({ products, preset = "3xAll" }) => {
     <section className={`grid ${gridClass} gap-6`}>
       {visibleVariants.map((variant) => (
         <ProductCard
-          key={variant.sku}              // <-- ADICIONA AQUI PARA REMOVER O ERRO
+          key={variant.sku}             
           id={variant.id}
           sku={variant.sku}
-          images={variant.images || [variant.image]} // fallback se não houver imagens
+          images={variant.images || [variant.image]}
           category={variant.category}
           title={variant.name}
           price={variant.price}
