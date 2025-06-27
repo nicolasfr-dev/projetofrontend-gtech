@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Gmail from "../assets/gmail.svg";
 import Facebook2 from "../assets/facebook-2.svg";
 
@@ -26,9 +27,11 @@ const CreateAccountPage = () => {
               />
             </label>
 
-            <button className="bg-primary hover:bg-tertiary w-full font-bold h-12 text-sm rounded-lg mb-3 text-white cursor-pointer">
-              Criar Conta
-            </button>
+            <Link to='/user/cadastro/form'>
+              <button className="bg-primary hover:bg-tertiary w-full font-bold h-12 text-sm rounded-lg mb-3 text-white cursor-pointer">
+                Criar Conta
+              </button>
+            </Link>
 
             <h4 className="text-center justify-self-center flex gap-5 mt-5">
               Ou faça login com <img src={Gmail} /> <img src={Facebook2} />

@@ -14,6 +14,7 @@ import CarrinhoConfirm from "../components/CarrinhoConfirm";
 import { CarrinhoProvider } from "../data/context/CarrinhoContext.jsx";
 import NotFoundPage from "../pages/NotFoundPage.jsx";
 import CarrinhoSucess from "../pages/CarrinhoSucess.jsx";
+import RegisterFormPage from "../pages/RegisterFormPage.jsx";
 
 
 const ScrollToTop = () => {
@@ -45,6 +46,7 @@ const Paths = () => {
           <Route path="/user" element={<PageLayoutLogin />}>
             <Route path="/user/login" element={<LoginPage />} />
             <Route path="/user/cadastro" element={<CreateAccountPage />} />
+            <Route path="/user/cadastro/form" element={<RegisterFormPage />} />
             <Route path="/user/resgatarsenha" element={<ForgotPassword />} />
             <Route path="*" element={<NotFoundPage />}/>
           </Route>
