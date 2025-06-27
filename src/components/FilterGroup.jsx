@@ -53,7 +53,7 @@ const FilterGroup = ({
               name={title}
               className={`h-5 w-5 ${
                 type === "checkbox" ? "form-checkbox" : "form-radio"
-              } text-primary`}
+              } text-primary accent-primary`}
               checked={
                 type === "checkbox"
                   ? !!selectedItems[item]
