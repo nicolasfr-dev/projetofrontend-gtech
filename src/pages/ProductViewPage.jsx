@@ -20,7 +20,11 @@ const ProductViewPage = () => {
   }, [sku]);
 
   if (!product) {
-    return <div className="p-8 text-center text-red-500 font-bold">Produto n√£o encontrado</div>;
+    return (
+      <div className="p-8 text-center text-red-500 font-bold">
+        Produto n„o encontrado
+      </div>
+    );
   }
 
   const variant = product.colors.find((c) => c.sku === selectedSku) || product.colors[0];
@@ -34,9 +38,9 @@ const ProductViewPage = () => {
   };
 
   return (
-    <main className="px-75 bg-light-gray-3 py-10 gap-10">
-      <section className="flex pb-5">
-        <section className="w-1/2">
+    <main className="px-4 sm:px-8 md:px-12 lg:px-20 bg-light-gray-3 py-10">
+      <section className="flex flex-col lg:flex-row gap-10 pb-5">
+        <section className="w-full lg:w-1/2">
           <ProductGallery
             images={variant.images || [variant.image]}
             radius="rounded-xl"
@@ -61,8 +65,8 @@ const ProductViewPage = () => {
       <Section
         title="Produtos em alta"
         link={
-          <Link className="flex gap-2" to="/produtos">
-            Ver tudo <img className="w-5" src={ArrowRight2} alt="" />
+          <Link className="flex gap-2 items-center" to="/produtos">
+            Ver tudo <img className="w-5" src={ArrowRight2} alt="Seta" />
           </Link>
         }
         content={<ProductListing preset="4x1" products={products} />}

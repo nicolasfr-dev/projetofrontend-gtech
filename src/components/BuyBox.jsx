@@ -36,11 +36,12 @@ const BuyBox = ({ id, name, reference, price, off, tags, colors, description, on
   };
 
   return (
-    <section className="w-full max-w-md mx-auto flex flex-col gap-4 px-6">
-      <h2 className="text-4xl font-bold">{name}</h2>
+    <section className="w-full max-w-md mx-auto flex flex-col gap-4 px-4 sm:px-6">
+
+      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">{name}</h2>
 
       <div className="text-sm text-dark-gray-3">
-        <span>Ref: {reference}</span> · <span>Avaliação: {selectedVariant.rating || "N/A"}⭐</span>
+        <span>Ref: {reference}</span> · <span>Avaliação: {selectedVariant.rating || "N/A"}⭝</span>
       </div>
 
       {off ? (
@@ -52,7 +53,7 @@ const BuyBox = ({ id, name, reference, price, off, tags, colors, description, on
         <span className="text-4xl font-bold text-dark-gray">R$ {price.toFixed(2)}</span>
       )}
 
-      <div className="flex gap-2 flex-wrap">
+      <div className="flex gap-2 flex-wrap justify-center sm:justify-start">
         {tags.map((tag, i) => (
           <span key={i} className="bg-white text-xs rounded-full px-3 py-1 font-medium text-gray-700">{tag}</span>
         ))}
@@ -86,7 +87,7 @@ const BuyBox = ({ id, name, reference, price, off, tags, colors, description, on
       <button
         onClick={handleBuy}
         disabled={!selectedSizeValue}
-        className={`mt-4 w-60 py-3 rounded-lg text-white font-bold ${
+        className={`mt-4 w-full sm:w-60 py-3 rounded-lg text-white font-bold ${
           selectedSizeValue ? "bg-buy-button hover:bg-buy-button-hover cursor-pointer" : "bg-light-gray-2 cursor-not-allowed"
         }`}
       >

@@ -23,11 +23,11 @@ const CarrinhoConfirm = ({ onSubmit }) => {
 
   return (
     <form onSubmit={handleSubmit(handleFinalSubmit)}>
-      <div className="flex flex-col bg-light-gray-3 justify-center pt-8 px-75 space-y-7">
-        <h1 className="text-4xl text-dark-gray font-bold">Finalizar Compra</h1>
-        <div className="flex flex-row flex-1 gap-2 mb-5">
+      <div className="flex flex-col bg-light-gray-3 justify-center pt-8 px-4 sm:px-8 space-y-7">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl text-dark-gray font-bold">Finalizar Compra</h1>
+        <div className="flex flex-col lg:flex-row flex-1 gap-4 mb-5">
           <div className="flex flex-col gap-2 w-3/4">
-            <div className="flex flex-col p-8 bg-white rounded-sm">
+            <div className="flex flex-col gap-2 w-full lg:w-3/4">
               <h2 className="text-sm text-dark-gray-2 font-bold border-b-1 border-light-gray-2 pb-4 mb-4">Informações Pessoais</h2>
               <div className="flex flex-col gap-4">
                 <div>
@@ -138,7 +138,7 @@ const CarrinhoConfirm = ({ onSubmit }) => {
             </div>
           </div>
 
-          <div className="flex-col px-8 py-7 h-max bg-white rounded-sm">
+          <div className="flex flex-col w-full lg:w-1/4 px-4 py-5 h-max bg-white rounded-sm mt-4 lg:mt-0">
             <div className="flex flex-col space-y-5 pb-5">
               <p className="text-lg text-dark-gray-2 font-bold">RESUMO</p>
               <hr className=" border-light-gray-2" />

@@ -15,8 +15,8 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-white w-full px-75 pt-7 pb-5">
-      <div className="flex justify-between w-full items-center">
+    <header className="bg-white w-full px-4 sm:px-8 md:px-12 lg:px-20 pt-7 pb-5">
+      <div className="flex flex-col md:flex-row md:justify-between w-full items-center gap-4">
         <Link to={"/"}>
           <img src={Logo} alt="Logo loja" />
         </Link>
@@ -25,10 +25,10 @@ const Header = () => {
           <img
             src={Search}
             className="absolute right-5 pointer-events-none"
-            alt="Ícone de busca"
+            alt="Ýcone de busca"
           />
           <input
-            className="bg-light-gray-3 text-dark-gray-2 ml-2 rounded-md w-lg h-15 p-5 placeholder:text-light-gray focus:outline-1 focus:outline-primary"
+            className="bg-light-gray-3 text-dark-gray-2 ml-2 rounded-md w-full sm:w-72 md:w-96 h-10 sm:h-12 px-4 placeholder:text-light-gray focus:outline-1 focus:outline-primary"
             type="text"
             placeholder="Pesquisar produto..."
             value={searchTerm}
@@ -48,13 +48,13 @@ const Header = () => {
           </Link>
         </div>
 
-        <div className="ml-20">
+        <div className="mt-4 md:mt-0">
           <CarrinhoList />
         </div>
       </div>
 
       <nav className="mt-5">
-        <ul className="flex gap-8">
+        <ul className="flex flex-wrap gap-4 sm:gap-6 md:gap-8 justify-center md:justify-start">
           {[
             { to: "/", label: "Home" },
             { to: "/produtos", label: "Produtos" },

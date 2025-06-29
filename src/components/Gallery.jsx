@@ -26,8 +26,7 @@ const Gallery = ({ images = [], interval = 5000 }) => {
 
   return (
     <div
-      className="relative w-full overflow-hidden"
-      style={{ height: "700px" }}
+      className="relative w-full overflow-hidden h-[300px] sm:h-[400px] md:h-[500px] lg:h-[700px]"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -56,15 +55,16 @@ const Gallery = ({ images = [], interval = 5000 }) => {
 
       <button
         onClick={prevImage}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-3 pr-2 bg-white/70 hover:bg-white hover:scale-105 rounded-full"
+        className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-10 p-2 sm:p-3 bg-white/70 hover:bg-white hover:scale-105 rounded-full"
+
       >
-        <img src={ArrowLeft} alt="Anterior" className="w-6 h-6" />
+        <img src={ArrowLeft} alt="Anterior" className="w-4 h-4 sm:w-6 sm:h-6"/>
       </button>
       <button
         onClick={nextImage}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-3 pr-2 bg-white/70 hover:bg-white hover:scale-105 rounded-full"
+        className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-10 p-2 sm:p-3 bg-white/70 hover:bg-white hover:scale-105 rounded-full"
       >
-        <img src={ArrowRight} alt="Próximo" className="w-6 h-6" />
+        <img src={ArrowRight} alt="Próximo" className="w-4 h-4 sm:w-6 sm:h-6" />
       </button>
 
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
@@ -72,8 +72,8 @@ const Gallery = ({ images = [], interval = 5000 }) => {
           <button
             key={index}
             onClick={() => setCurrent(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              current === index ? "bg-primary scale-110" : "bg-white/60"
+            className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
+            current === index ? "bg-primary scale-110" : "bg-white/60"
             }`}
           />
         ))}

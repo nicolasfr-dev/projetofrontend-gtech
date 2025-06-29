@@ -43,8 +43,8 @@ const CarrinhoList = () => {
       </div>
 
       {isOpen && (
-        <div className="absolute right-0 top-10 w-80 bg-white rounded shadow-xl border border-gray-200 z-50">
-          <div className="p-4">
+        <div className="absolute right-0 top-10 w-72 sm:w-80 max-w-[90vw] bg-white rounded shadow-xl border border-gray-200 z-50">
+          <div className="p-3 sm:p-4">
             <h4 className="font-bold text-dark-gray pt-2 pb-4 border-b border-light-gray-2">Meu Carrinho</h4>
 
             <div className="flex flex-col gap-3 max-h-60 mt-5 pb-5 border-b border-light-gray-2 overflow-y-auto">
@@ -59,7 +59,7 @@ const CarrinhoList = () => {
                       className="w-17 h-14 rounded bg-[#E2E3FF] object-contain"
                     />
                     <div className="flex flex-col text-sm">
-                      <span className="font-semibold leading-tight">{item.name}</span>
+                      <span className="font-semibold leading-tight truncate max-w-[12rem]">{item.name}</span>
                       <span className="text-dark-gray font-bold">
                         R$ {item.price.toFixed(2).replace('.', ',')}
                       </span>
@@ -84,11 +84,12 @@ const CarrinhoList = () => {
                     Esvaziar
                   </button>
                   <Link
-                    to="/carrinho"
-                    className="bg-primary text-white text-xs px-4 py-2 rounded-md font-semibold"
-                  >
-                    Ver Carrinho
-                  </Link>
+                      to="/carrinho"
+                      className="bg-primary text-white text-xs px-3 sm:px-4 py-2 rounded-md font-semibold"
+                    >
+                      Ver Carrinho
+                    </Link>
+
                 </div>
               </>
             )}

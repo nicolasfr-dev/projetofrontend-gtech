@@ -29,8 +29,8 @@ const CarrinhoForm = ({ onSubmit }) => {
 
   return (
     <form onSubmit={handleSubmit(handleFinalSubmit)}>
-      <div className="flex flex-row justify-center bg-light-gray-3 h-full pb-5 pt-12 px-75">
-        <div className="flex flex-col pr-2 pb-5 w-3/4">
+      <div className="flex flex-col lg:flex-row justify-center bg-light-gray-3 h-full pb-5 pt-12 px-4 sm:px-8">
+        <div className="flex flex-col w-full lg:w-3/4 pb-5">
           <div className="flex flex-col py-5 px-4 h-full bg-white rounded-sm">
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-dark-gray font-bold uppercase">Meu Carrinho</h2>
@@ -88,8 +88,8 @@ const CarrinhoForm = ({ onSubmit }) => {
             </div>
           </div>
 
-          <div className="flex flex-row">
-            <div className="flex flex-col gap-3 w-1/2 bg-white p-5 rounded">
+          <div className="flex flex-col md:flex-row gap-4 mt-4">
+            <div className="flex flex-col gap-3 w-full md:w-1/2 bg-white p-5 rounded">
               <label className="text-xs font-bold text-dark-gray-2">
                 Cupom de desconto
                 <div className="flex mt-2 gap-2">
@@ -133,7 +133,7 @@ const CarrinhoForm = ({ onSubmit }) => {
           </div>
         </div>
 
-        <div className="w-1/4 p-5 bg-white rounded-sm">
+        <div className="w-full lg:w-1/4 p-5 bg-white rounded-sm mt-4 lg:mt-0">
           <h3 className="text-dark-gray-2 border-b border-light-gray-2 pb-2 font-bold uppercase">Resumo</h3>
           <div className="mt-4 space-y-3 text-sm">
             <div className="flex justify-between">

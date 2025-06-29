@@ -57,28 +57,29 @@ const ProductGallery = ({ images = [], radius = "rounded-md", showThumbs = true 
 
         <button
           onClick={prevImage}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-3 pr-2 bg-white/70 hover:bg-white hover:scale-105 rounded-full"
-        >
-          <img src={ArrowLeft} alt="Anterior" className="w-6 h-6" />
+           className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-10 p-2 sm:p-3 bg-white/70 hover:bg-white hover:scale-105 rounded-full"
+          >
+          <img src={ArrowLeft} alt="Anterior" className="w-4 h-4 sm:w-6 sm:h-6" />
         </button>
+
         <button
           onClick={nextImage}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-3 pr-2 bg-white/70 hover:bg-white hover:scale-105 rounded-full"
+          className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-10 p-2 sm:p-3 bg-white/70 hover:bg-white hover:scale-105 rounded-full"
         >
-          <img src={ArrowRight} alt="Próximo" className="w-6 h-6" />
+          <img src={ArrowRight} alt="Próximo" className="w-4 h-4 sm:w-6 sm:h-6"/>
         </button>
       </div>
 
 
       {showThumbs && (
-        <div className="flex justify-between mt-4 overflow-auto">
+        <div className="flex gap-3 mt-4 overflow-x-auto pb-2">
           {images.map((img, index) => (
             <img
               key={index}
               src={img}
               alt={`Miniatura ${index + 1}`}
               onClick={() => goToImage(index)}
-              className={`w-30 h-20 object-cover cursor-pointer border-2 bg-white ${
+              className={`w-24 sm:w-28 md:w-30 h-16 sm:h-20 object-cover cursor-pointer border-2 bg-white flex-shrink-0 ${
                 index === currentIndex ? "border-primary" : "border-transparent"
               } ${radius}`}
             />
