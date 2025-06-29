@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCarrinho } from "../data/context/CarrinhoContext.jsx";
 import CartIcon from "../assets/mini-cart.svg";
@@ -21,7 +21,7 @@ const CarrinhoList = () => {
 
   const handleMouseLeave = () => {
     setIsHovering(false);
-    // Fecha o dropdown apenas se não estiver clicado
+    // Fecha o dropdown apenas se nÃ£o estiver clicado
     setTimeout(() => {
       if (!isHovering) setIsOpen(false);
     }, 150);
@@ -49,7 +49,7 @@ const CarrinhoList = () => {
 
             <div className="flex flex-col gap-3 max-h-60 mt-5 pb-5 border-b border-light-gray-2 overflow-y-auto">
               {carrinho.length === 0 ? (
-                <span className="text-sm text-gray-400">Seu carrinho está vazio.</span>
+                <span className="text-sm text-gray-400">Seu carrinho estÃ¡ vazio.</span>
               ) : (
                 carrinho.map((item, i) => (
                   <div key={i} className="flex gap-3 items-center">

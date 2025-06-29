@@ -1,82 +1,194 @@
-import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import Logo from "../assets/logo-header.svg";
 import Search from "../assets/search-icon.svg";
-import CarrinhoList from "./CarrinhoList";
+import CartIcon from "../assets/mini-cart.svg";
+import { Menu, X } from "lucide-react";
 
 const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+
   const navigate = useNavigate();
 
   const handleSearch = (e) => {
     if (e.key === "Enter" && searchTerm.trim()) {
       navigate(`/produtos?search=${encodeURIComponent(searchTerm.trim())}`);
+      setIsSearchOpen(false);
+      setSearchTerm("");
     }
   };
 
   return (
-    <header className="bg-white w-full px-4 sm:px-8 md:px-12 lg:px-20 pt-7 pb-5">
-      <div className="flex flex-col md:flex-row md:justify-between w-full items-center gap-4">
-        <Link to={"/"}>
-          <img src={Logo} alt="Logo loja" />
-        </Link>
+    <header className="bg-white w-full border-b border-gray-200">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-4 lg:py-6 gap-4">
+        {/* Esquerda */}
+        <div className="flex items-center gap-4">
+          {/* Botão menu mobile */}
+          <button
+            className="lg:hidden"
+            onClick={() => setIsMenuOpen(true)}
+            aria-label="Abrir menu"
+          >
+            <Menu className="w-6 h-6 text-dark-gray" />
+          </button>
 
-        <div className="relative flex items-center focus-within:text-primary">
-          <img
-            src={Search}
-            className="absolute right-5 pointer-events-none"
-            alt="Ýcone de busca"
-          />
-          <input
-            className="bg-light-gray-3 text-dark-gray-2 ml-2 rounded-md w-full sm:w-72 md:w-96 h-10 sm:h-12 px-4 placeholder:text-light-gray focus:outline-1 focus:outline-primary"
-            type="text"
-            placeholder="Pesquisar produto..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            onKeyDown={handleSearch}
-          />
-        </div>
-
-        <div className="flex gap-8 items-center">
-          <span className="text-dark-gray underline">
-            <Link to="/user/cadastro">Cadastre-se</Link>
-          </span>
-          <Link to="/user/login">
-            <button className="bg-primary hover:bg-tertiary font-semibold w-28 h-10 text-sm rounded-lg text-white cursor-pointer">
-              Entrar
-            </button>
+          {/* Logo */}
+          <Link to="/">
+            <img src={Logo} alt="Logo" className="h-8" />
           </Link>
         </div>
 
-        <div className="mt-4 md:mt-0">
-          <CarrinhoList />
-        </div>
-      </div>
-
-      <nav className="mt-5">
-        <ul className="flex flex-wrap gap-4 sm:gap-6 md:gap-8 justify-center md:justify-start">
+        {/* Centro */}
+        <nav className="hidden lg:flex gap-6">
           {[
             { to: "/", label: "Home" },
             { to: "/produtos", label: "Produtos" },
             { to: "/categorias", label: "Categorias" },
             { to: "/pedidos", label: "Meus Pedidos" },
           ].map(({ to, label }) => (
-            <li key={to} className="hover:text-primary">
-              <NavLink
-                to={to}
-                className={({ isActive }) =>
+            <NavLink
+              key={to}
+              to={to}
+              className={({ isActive }) =>
+                `font-medium ${
                   isActive
-                    ? "text-primary font-bold border-b-2"
+                    ? "text-primary border-b-2 border-primary"
                     : "text-dark-gray"
-                }
-              >
-                {label}
-              </NavLink>
-              
-            </li>
+                }`
+              }
+            >
+              {label}
+            </NavLink>
           ))}
-        </ul>
-      </nav>
+        </nav>
+
+        {/* Direita */}
+        <div className="flex items-center gap-4">
+          {/* Busca desktop */}
+          <div className="hidden lg:block relative">
+            <input
+              type="text"
+              placeholder="Pesquisar produto..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              onKeyDown={handleSearch}
+              className="w-64 bg-light-gray-3 text-dark-gray-2 rounded-md h-10 pl-4 pr-10 placeholder:text-light-gray focus:outline-primary"
+            />
+            <img
+              src={Search}
+              className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 pointer-events-none"
+              alt="Buscar"
+            />
+          </div>
+
+          {/* Botão busca mobile */}
+          <button
+            className="lg:hidden"
+            onClick={() => setIsSearchOpen((v) => !v)}
+            aria-label="Abrir busca"
+          >
+            <img src={Search} className="w-5 h-5" alt="Buscar" />
+          </button>
+
+          <Link
+            to="/user/cadastro"
+            className="hidden lg:inline text-dark-gray underline text-sm"
+          >
+            Cadastre-se
+          </Link>
+          <Link
+            to="/user/login"
+            className="hidden lg:inline bg-primary hover:bg-tertiary text-white font-semibold px-4 py-2 rounded text-sm"
+          >
+            Entrar
+          </Link>
+          <Link to="/carrinho">
+            <img src={CartIcon} className="w-5 h-5" alt="Carrinho" />
+          </Link>
+        </div>
+      </div>
+
+      {/* Campo de busca no mobile */}
+      {isSearchOpen && (
+        <div className="px-4 pb-3 lg:hidden">
+          <div className="relative">
+            <input
+              type="text"
+              placeholder="Pesquisar produto..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              onKeyDown={handleSearch}
+              className="w-full bg-light-gray-3 text-dark-gray-2 rounded-md h-10 pl-4 pr-10 placeholder:text-light-gray focus:outline-primary"
+            />
+            <img
+              src={Search}
+              className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 pointer-events-none"
+              alt="Buscar"
+            />
+          </div>
+        </div>
+      )}
+
+      {/* Sidebar */}
+      {isMenuOpen && (
+        <>
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 bg-black/50 z-40"
+            onClick={() => setIsMenuOpen(false)}
+          />
+          {/* Sidebar */}
+          <aside className="fixed top-0 left-0 w-64 h-full bg-white z-50 p-6 flex flex-col animate-slide-in">
+            <button
+              className="self-end mb-4"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <X className="w-6 h-6" />
+            </button>
+            <h3 className="text-sm font-bold mb-4">Páginas</h3>
+            <nav className="flex flex-col gap-4">
+              {[
+                { to: "/", label: "Home" },
+                { to: "/produtos", label: "Produtos" },
+                { to: "/categorias", label: "Categorias" },
+                { to: "/pedidos", label: "Meus Pedidos" },
+              ].map(({ to, label }) => (
+                <NavLink
+                  key={to}
+                  to={to}
+                  onClick={() => setIsMenuOpen(false)}
+                  className={({ isActive }) =>
+                    `text-sm ${
+                      isActive
+                        ? "text-primary font-bold underline"
+                        : "text-dark-gray"
+                    }`
+                  }
+                >
+                  {label}
+                </NavLink>
+              ))}
+            </nav>
+            <hr className="my-4 border-light-gray-2" />
+            <div className="flex flex-col gap-2 mt-auto">
+              <Link
+                to="/user/login"
+                className="bg-primary text-white text-center py-2 rounded font-semibold"
+              >
+                Entrar
+              </Link>
+              <Link
+                to="/user/cadastro"
+                className="text-primary text-center underline font-medium"
+              >
+                Cadastre-se
+              </Link>
+            </div>
+          </aside>
+        </>
+      )}
     </header>
   );
 };

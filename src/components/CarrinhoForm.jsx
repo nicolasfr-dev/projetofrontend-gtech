@@ -43,7 +43,7 @@ const CarrinhoForm = ({ onSubmit }) => {
 
             <div className="border-y border-light-gray-2">
               {carrinho.map((item, index) => (
-                <div key={index} className="flex justify-between items-center py-4">
+                <div key={index} className="flex flex-col md:flex-row justify-between items-start md:items-center py-4 gap-4">
                   <div className="flex gap-4">
                     <img
                       src={item.image || "/product-thumb.png"}
@@ -110,7 +110,7 @@ const CarrinhoForm = ({ onSubmit }) => {
               </label>
             </div>
 
-            <div className="flex flex-col gap-3 w-1/2 bg-white p-5 rounded">
+            <div className="flex flex-col gap-3 w-full md:w-1/2 bg-white p-5 rounded">
               <label className="text-xs font-bold text-dark-gray-2">
                 Calcular frete
                 <div className="flex mt-2 gap-2">
@@ -133,7 +133,7 @@ const CarrinhoForm = ({ onSubmit }) => {
           </div>
         </div>
 
-        <div className="w-full lg:w-1/4 p-5 bg-white rounded-sm mt-4 lg:mt-0">
+        <div className="w-full max-w-md lg:w-1/4 p-5 bg-white rounded-sm mt-4 lg:mt-0 mx-auto">
           <h3 className="text-dark-gray-2 border-b border-light-gray-2 pb-2 font-bold uppercase">Resumo</h3>
           <div className="mt-4 space-y-3 text-sm">
             <div className="flex justify-between">

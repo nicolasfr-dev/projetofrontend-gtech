@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+﻿import { useState, useEffect } from "react";
 import ProductOptions from "./ProductOptions";
 import { useCarrinho } from "../data/context/CarrinhoContext.jsx";
 
@@ -41,7 +41,7 @@ const BuyBox = ({ id, name, reference, price, off, tags, colors, description, on
       <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">{name}</h2>
 
       <div className="text-sm text-dark-gray-3">
-        <span>Ref: {reference}</span> · <span>Avaliação: {selectedVariant.rating || "N/A"}⭝</span>
+        <span>Ref: {reference}</span> Â· <span>Avaliação: {selectedVariant.rating || "N/A"}â­�</span>
       </div>
 
       {off ? (

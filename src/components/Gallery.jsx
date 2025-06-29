@@ -62,7 +62,7 @@ const Gallery = ({ images = [], interval = 5000 }) => {
       </button>
       <button
         onClick={nextImage}
-        className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-10 p-2 sm:p-3 bg-white/70 hover:bg-white hover:scale-105 rounded-full"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-3 bg-white/70 hover:bg-white hover:scale-105 rounded-full"
       >
         <img src={ArrowRight} alt="Próximo" className="w-4 h-4 sm:w-6 sm:h-6" />
       </button>
