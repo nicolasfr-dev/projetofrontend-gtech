@@ -11,7 +11,7 @@ const CreateAccountPage = () => {
             Crie sua conta
           </h2>
           <h3 className="py-5 text-sm md:text-base">
-            J· possui uma conta? Ent„o entre{" "}
+            J√° possui uma conta? Ent√£o entre{" "}
             <Link className="underline text-primary" to="/user/login">
               aqui.
             </Link>
@@ -40,7 +40,7 @@ const CreateAccountPage = () => {
           </Link>
 
           <h4 className="text-center flex flex-col items-center gap-3 mt-5 text-sm">
-            Ou faÁa login com
+            Ou fa√ßa login com
             <div className="flex gap-4">
               <button type="button">
                 <img src={Gmail} alt="Login com Gmail" />
@@ -56,7 +56,7 @@ const CreateAccountPage = () => {
       <div className="w-full lg:w-1/2 mt-8 lg:mt-0 flex justify-center items-center">
         <img
           src="/login-shoes.png"
-          alt="Sapatos em exibiÁ„o"
+          alt="Sapatos em exibi√ß√£o"
           className="w-full h-auto object-contain"
         />
       </div>

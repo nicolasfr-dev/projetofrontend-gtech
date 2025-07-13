@@ -22,26 +22,62 @@ const Header = () => {
 
   return (
     <header className="bg-white w-full border-b border-gray-200">
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-4 lg:py-6 gap-4">
-        {/* Esquerda */}
-        <div className="flex items-center gap-4">
-          {/* Botão menu mobile */}
-          <button
-            className="lg:hidden"
-            onClick={() => setIsMenuOpen(true)}
-            aria-label="Abrir menu"
-          >
-            <Menu className="w-6 h-6 text-dark-gray" />
-          </button>
+      <div className="max-w-7xl mx-auto px-4">
+        {/* Primeira linha */}
+        <div className="flex items-center justify-between py-4 lg:py-6 gap-4">
+          <div className="flex items-center gap-4">
+            {/* Botão menu mobile */}
+            <button
+              className="lg:hidden"
+              onClick={() => setIsMenuOpen(true)}
+              aria-label="Abrir menu"
+            >
+              <Menu className="w-6 h-6 text-dark-gray" />
+            </button>
+            {/* Logo */}
+            <Link to="/">
+              <img src={Logo} alt="Logo" className="h-8" />
+            </Link>
+          </div>
 
-          {/* Logo */}
-          <Link to="/">
-            <img src={Logo} alt="Logo" className="h-8" />
-          </Link>
+          {/* Busca desktop */}
+          <div className="hidden lg:block flex-1 max-w-lg mx-8 relative">
+            <input
+              type="text"
+              placeholder="Pesquisar produto..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              onKeyDown={handleSearch}
+              className="w-full bg-light-gray-3 text-dark-gray-2 rounded-md h-10 pl-4 pr-10 placeholder:text-light-gray focus:outline-primary"
+            />
+            <img
+              src={Search}
+              className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 pointer-events-none"
+              alt="Buscar"
+            />
+          </div>
+
+          <div className="flex items-center gap-4">
+            <Link
+              to="/user/cadastro"
+              className="hidden lg:inline text-dark-gray underline text-sm"
+            >
+              Cadastre-se
+            </Link>
+            <Link
+              to="/user/login"
+              className="hidden lg:inline bg-primary hover:bg-tertiary text-white font-semibold px-4 py-2 rounded text-sm"
+            >
+              Entrar
+            </Link>
+            <Link to="/carrinho">
+              <img src={CartIcon} className="w-5 h-5" alt="Carrinho" />
+            </Link>
+          </div>
         </div>
 
-        {/* Centro */}
-        <nav className="hidden lg:flex gap-6">
+        {/* Segunda linha */}
+        <nav className="hidden lg:flex gap-6 border-t border-light-gray-2 pt-4 pb-2">
           {[
             { to: "/", label: "Home" },
             { to: "/produtos", label: "Produtos" },
@@ -63,54 +99,9 @@ const Header = () => {
             </NavLink>
           ))}
         </nav>
-
-        {/* Direita */}
-        <div className="flex items-center gap-4">
-          {/* Busca desktop */}
-          <div className="hidden lg:block relative">
-            <input
-              type="text"
-              placeholder="Pesquisar produto..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              onKeyDown={handleSearch}
-              className="w-64 bg-light-gray-3 text-dark-gray-2 rounded-md h-10 pl-4 pr-10 placeholder:text-light-gray focus:outline-primary"
-            />
-            <img
-              src={Search}
-              className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 pointer-events-none"
-              alt="Buscar"
-            />
-          </div>
-
-          {/* Botão busca mobile */}
-          <button
-            className="lg:hidden"
-            onClick={() => setIsSearchOpen((v) => !v)}
-            aria-label="Abrir busca"
-          >
-            <img src={Search} className="w-5 h-5" alt="Buscar" />
-          </button>
-
-          <Link
-            to="/user/cadastro"
-            className="hidden lg:inline text-dark-gray underline text-sm"
-          >
-            Cadastre-se
-          </Link>
-          <Link
-            to="/user/login"
-            className="hidden lg:inline bg-primary hover:bg-tertiary text-white font-semibold px-4 py-2 rounded text-sm"
-          >
-            Entrar
-          </Link>
-          <Link to="/carrinho">
-            <img src={CartIcon} className="w-5 h-5" alt="Carrinho" />
-          </Link>
-        </div>
       </div>
 
-      {/* Campo de busca no mobile */}
+      {/* Campo de busca mobile */}
       {isSearchOpen && (
         <div className="px-4 pb-3 lg:hidden">
           <div className="relative">
@@ -131,7 +122,7 @@ const Header = () => {
         </div>
       )}
 
-      {/* Sidebar */}
+      {/* Sidebar menu */}
       {isMenuOpen && (
         <>
           {/* Backdrop */}
@@ -139,7 +130,6 @@ const Header = () => {
             className="fixed inset-0 bg-black/50 z-40"
             onClick={() => setIsMenuOpen(false)}
           />
-          {/* Sidebar */}
           <aside className="fixed top-0 left-0 w-64 h-full bg-white z-50 p-6 flex flex-col animate-slide-in">
             <button
               className="self-end mb-4"
