@@ -15,6 +15,7 @@ import { CarrinhoProvider } from "../data/context/CarrinhoContext.jsx";
 import NotFoundPage from "../pages/NotFoundPage.jsx";
 import CarrinhoSucess from "../pages/CarrinhoSucess.jsx";
 import RegisterFormPage from "../pages/RegisterFormPage.jsx";
+import InfoPage from "../pages/InfoPage.jsx";
 
 
 const ScrollToTop = () => {
@@ -38,6 +39,7 @@ const Paths = () => {
             <Route path="/produtos" element={<ProductListingPage />} />
             <Route path="/produto/:id/:sku" element={<ProductViewPage />} />
             <Route path="/pedidos" element={<OrderPage />} />
+            <Route path="/informacoes" element={<InfoPage />} />
             <Route path="/carrinho" element={<CarrinhoPage />} />
             <Route path="/carrinho/confirm" element={<CarrinhoConfirm />} />
             <Route path="/carrinho/sucess" element={<CarrinhoSucess />} />
