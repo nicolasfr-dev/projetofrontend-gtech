@@ -22,7 +22,7 @@ const ProductViewPage = () => {
   if (!product) {
     return (
       <div className="p-8 text-center text-red-500 font-bold">
-        Produto não encontrado
+        Produto nï¿½o encontrado
       </div>
     );
   }
@@ -38,7 +38,7 @@ const ProductViewPage = () => {
   };
 
   return (
-    <main className="px-4 sm:px-8 md:px-12 lg:px-20 bg-light-gray-3 py-10">
+    <main className="px-4 sm:px-8 md:px-12 lg:px-75 bg-light-gray-3 py-10">
       <section className="flex flex-col lg:flex-row gap-10 pb-5">
         <section className="w-full lg:w-1/2">
           <ProductGallery

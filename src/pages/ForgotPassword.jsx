@@ -4,7 +4,7 @@ import Facebook2 from "../assets/facebook-2.svg";
 
 const ForgotPassword = () => {
   return (
-    <main className="flex flex-col lg:flex-row w-full min-h-screen px-4 sm:px-8 md:px-12 lg:px-20 py-8 bg-gradient-to-t from-[#EFEFFF] to-secondary">
+    <main className="flex flex-col items-center lg:flex-row w-full min-h-screen sm:px-8 md:px-12 lg:px-75 lg:pt-0 p-4 bg-gradient-to-t from-[#EFEFFF] to-secondary">
       <div className="bg-white p-8 rounded-sm w-full lg:w-2/5 self-center">
         <form className="w-full">
           <h2 className="font-bold text-3xl md:text-4xl text-dark-gray">
@@ -12,14 +12,14 @@ const ForgotPassword = () => {
           </h2>
 
           <h3 className="py-5 text-dark-gray-2 text-sm md:text-base">
-            Lembrou da senha? Então entre{" "}
-            <Link className="underline text-primary" to="/user/login">
+            Lembrou da senha? EntÃ£o entre{" "}
+            <Link className="underline" to="/user/login">
               aqui.
             </Link>
           </h3>
 
           <p className="mb-5 text-sm text-dark-gray">
-            Você receberá um email com um link para redefinir sua senha.
+            VocÃª receberÃ¡ um email com um link para redefinir sua senha.
           </p>
 
           <label
