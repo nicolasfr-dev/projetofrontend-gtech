@@ -5,16 +5,16 @@ const Category = ({ image, hover, title }) => {
     <>
       <Link to={"/produtos"}>
         <div className="flex flex-col items-center group cursor-pointer">
-          <div className="relative flex justify-center items-center rounded-full w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] md:w-[140px] md:h-[140px] bg-white overflow-hidden">
+          <div className="relative flex flex-nowrap justify-center items-center rounded-full w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] md:w-[140px] md:h-[140px] bg-white overflow-hidden">
             <img
               src={image}
               alt={title}
-              className="scale-110 md:scale-125 transition-opacity duration-300 opacity-100 group-hover:opacity-0 group-hover:scale-[1.25]"
+              className="scale-110 md:scale-125 absolute z-10 transition-opacity duration-300 opacity-100 group-hover:opacity-0 group-hover:scale-[1.25]"
             />
             <img
               src={hover}
               alt={title}
-              className="scale-110 md:scale-125 transition-opacity duration-300 opacity-100 group-hover:opacity-0 group-hover:scale-[1.25]"
+              className="scale-110 md:scale-125 absolute transition-opacity duration-300 opacity-0 group-hover:opacity-100 group-hover:scale-[1.25]"
             />
           </div>
 

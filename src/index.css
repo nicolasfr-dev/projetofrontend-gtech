@@ -4,6 +4,16 @@
     font-family: Inter, sans-serif ;
 }
 
+@layer utilities {
+ .no-scrollbar::-webkit-scrollbar {
+  display: none;
+ }
+ .no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+ }
+}
+
 @theme {
     --color-primary: #C92071;
     --color-secondary: #B5B6F2;
