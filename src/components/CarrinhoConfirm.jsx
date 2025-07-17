@@ -32,12 +32,12 @@ const CarrinhoConfirm = ({ onSubmit }) => {
 
   return (
     <form onSubmit={handleSubmit(handleFinalSubmit)}>
-      <div className="w-full max-w-5xl mx-auto flex flex-col bg-light-gray-3 justify-center pt-8 px-4 sm:px-8 space-y-7">
+      <div className="w-full flex flex-col bg-light-gray-3 justify-center pt-8 lg:px-75 px-4 sm:px-8 space-y-7">
         <h1 className="text-2xl sm:text-3xl md:text-4xl text-dark-gray font-bold">
           Finalizar Compra
         </h1>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-5">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-5 items-start">
           {/* COLUNA PRINCIPAL */}
           <div className="flex flex-col gap-6 lg:col-span-2">
             {/* Informações Pessoais */}
@@ -206,51 +206,50 @@ const CarrinhoConfirm = ({ onSubmit }) => {
           </div>
 
           {/* COLUNA RESUMO */}
-          <div className="flex flex-col px-8 py-7 bg-white rounded-sm">
-            <h2 className="text-lg text-dark-gray-2 font-bold mb-4">RESUMO</h2>
-            <hr className="border-light-gray-2 mb-4" />
-            <div className="flex flex-col gap-4">
-              {carrinho.map((produto) => (
-                <div key={produto.sku} className="flex items-center space-x-4">
-                  <img
-                    className="w-20 h-14 object-contain rounded-sm bg-[#E2E3FF]"
-                    src={produto.image || "/default-image.png"}
-                    alt={produto.name || "Produto"}
-                  />
-                  <div className="flex-1">
-                    <p className="text-sm text-dark-gray font-bold">{produto.name}</p>
-                    <p className="text-xs text-light-gray">
-                      {produto.qty} un • R$ {garantirNumero(produto.price).toFixed(2)}
-                    </p>
-                  </div>
-                </div>
-              ))}
-              <hr className="border-light-gray-2" />
-              <div className="flex justify-between text-sm">
-                <span className="text-light-gray">Subtotal:</span>
-                <span>R$ {calcularSubtotal().toFixed(2)}</span>
-              </div>
-              <div className="flex justify-between text-sm">
-                <span className="text-light-gray">Frete:</span>
-                <span>R$ {calcularFrete().toFixed(2)}</span>
-              </div>
-              <div className="flex justify-between text-sm">
-                <span className="text-light-gray">Desconto:</span>
-                <span>R$ {calcularDesconto().toFixed(2)}</span>
-              </div>
-              <div className="flex justify-between text-lg font-bold">
-                <span>Total:</span>
-                <span>R$ {calcularTotal().toFixed(2)}</span>
-              </div>
-              <button
-                className="mt-4 bg-warning font-bold rounded-lg text-white w-full h-13"
-                type="submit"
-              >
-                Realizar Pagamento
-              </button>
-            </div>
+<div className="flex flex-col px-8 py-7 bg-white rounded-sm">
+    <h2 className="text-lg text-dark-gray-2 border-b-1 border-light-gray-2 pb-4 font-bold mb-4">RESUMO</h2>
+    <div className="flex flex-col gap-4">
+      {carrinho.map((produto) => (
+        <div key={produto.sku} className="flex items-center space-x-4">
+          <img
+            className="w-20 h-14 object-contain rounded-sm bg-[#E2E3FF]"
+            src={produto.image || "/default-image.png"}
+            alt={produto.name || "Produto"}
+          />
+          <div className="flex-1">
+            <p className="text-sm text-dark-gray font-bold">{produto.name}</p>
+            <p className="text-xs text-light-gray">
+              {produto.qty} un • R$ {garantirNumero(produto.price).toFixed(2)}
+            </p>
           </div>
         </div>
+      ))}
+      <hr className="border-light-gray-2" />
+      <div className="flex justify-between text-sm">
+        <span className="text-light-gray">Subtotal:</span>
+        <span>R$ {calcularSubtotal().toFixed(2)}</span>
+      </div>
+      <div className="flex justify-between text-sm">
+        <span className="text-light-gray">Frete:</span>
+        <span>R$ {calcularFrete().toFixed(2)}</span>
+      </div>
+      <div className="flex justify-between text-sm">
+        <span className="text-light-gray">Desconto:</span>
+        <span>R$ {calcularDesconto().toFixed(2)}</span>
+      </div>
+      <div className="flex justify-between text-lg font-bold">
+        <span>Total:</span>
+        <span>R$ {calcularTotal().toFixed(2)}</span>
+      </div>
+      <button
+        className="mt-4 bg-warning font-bold rounded-lg text-white w-full h-13"
+        type="submit"
+      >
+        Realizar Pagamento
+      </button>
+    </div>
+  </div>
+</div>
       </div>
     </form>
   );

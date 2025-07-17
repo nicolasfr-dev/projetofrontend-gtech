@@ -1,4 +1,4 @@
-﻿import { useState } from "react";
+﻿import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useCarrinho } from "../data/context/CarrinhoContext.jsx";
 import CartIcon from "../assets/mini-cart.svg";
@@ -6,32 +6,29 @@ import CartIcon from "../assets/mini-cart.svg";
 const CarrinhoList = () => {
   const { carrinho, limparCarrinho } = useCarrinho();
   const [isOpen, setIsOpen] = useState(false);
-  const [isHovering, setIsHovering] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const total = carrinho.reduce((acc, item) => acc + item.price * (item.qty || 1), 0);
 
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 1024);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  // Toggle para mobile (click)
   const handleToggle = () => {
-    setIsOpen(prev => !prev);
-  };
-
-  const handleMouseEnter = () => {
-    setIsHovering(true);
-    setIsOpen(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovering(false);
-    // Fecha o dropdown apenas se nÃ£o estiver clicado
-    setTimeout(() => {
-      if (!isHovering) setIsOpen(false);
-    }, 150);
+    if (isMobile) {
+      setIsOpen((prev) => !prev);
+    }
   };
 
   return (
     <div
-      className="relative cursor-pointer"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      className="relative cursor-pointer select-none"
+      onMouseEnter={() => !isMobile && setIsOpen(true)}
+      onMouseLeave={() => !isMobile && setIsOpen(false)}
     >
       <div className="relative" onClick={handleToggle}>
         <img src={CartIcon} alt="Carrinho" className="w-6 h-6" />
@@ -84,12 +81,11 @@ const CarrinhoList = () => {
                     Esvaziar
                   </button>
                   <Link
-                      to="/carrinho"
-                      className="bg-primary text-white text-xs px-3 sm:px-4 py-2 rounded-md font-semibold"
-                    >
-                      Ver Carrinho
-                    </Link>
-
+                    to="/carrinho"
+                    className="bg-primary text-white text-xs px-3 sm:px-4 py-2 rounded-md font-semibold"
+                  >
+                    Ver Carrinho
+                  </Link>
                 </div>
               </>
             )}

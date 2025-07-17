@@ -1,5 +1,10 @@
 import { useForm } from "react-hook-form";
 import { useCarrinho } from "../data/context/CarrinhoContext.jsx";
+import ProductListing from "./ProductListing.jsx";
+import products from "../data/Products.jsx";
+import Section from "./Section.jsx";
+import ArrowRight2 from "../assets/arrow-right-2.svg";
+import { Link } from "react-router-dom";
 
 const CarrinhoForm = ({ onSubmit }) => {
   const { register, handleSubmit, reset } = useForm();
@@ -28,7 +33,7 @@ const CarrinhoForm = ({ onSubmit }) => {
 
   return (
     <form onSubmit={handleSubmit(handleFinalSubmit)}>
-      <div className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row justify-center bg-light-gray-3 h-full pb-5 pt-12 px-4 sm:px-8">
+      <div className="w-full max-w-7xl  flex flex-col lg:flex-row justify-center bg-light-gray-3 h-full pb-5 gap-2">
         {/* Coluna principal */}
         <div className="flex flex-col w-full lg:w-3/4 pb-5">
           <div className="flex flex-col py-5 px-4 h-full bg-white rounded-sm">
@@ -102,7 +107,7 @@ const CarrinhoForm = ({ onSubmit }) => {
           </div>
 
           {/* Cupom e Frete */}
-          <div className="flex flex-col md:flex-row gap-4 mt-4">
+          <div className="flex flex-col md:flex-row gap-4 mt-4 mb-0 lg:mb-30">
             <div className="flex flex-col gap-3 w-full md:w-1/2 bg-white p-5 rounded">
               <label className="text-xs font-bold text-dark-gray-2">
                 Cupom de desconto
@@ -145,31 +150,18 @@ const CarrinhoForm = ({ onSubmit }) => {
               </label>
             </div>
           </div>
-
-          {/* Produtos Relacionados */}
-          <div className="w-full mt-8">
-            <h2 className="text-base font-bold mb-4">
-              Produtos Relacionados
-            </h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {[1, 2, 3, 4].map((i) => (
-                <div
-                  key={i}
-                  className="bg-white p-4 rounded text-center flex flex-col"
-                >
-                  <img
-                    src="/product-thumb.png"
-                    alt={`Produto ${i}`}
-                    className="w-full h-32 object-contain mb-2"
-                  />
-                  <h3 className="text-sm font-semibold">
-                    Produto Exemplo {i}
-                  </h3>
-                  <p className="text-primary font-bold">R$ 199,90</p>
-                </div>
-              ))}
+          
+          <div className="invisible hidden lg:visible lg:block"> 
+          <Section
+            title="Produtos em alta"
+            link={
+              <Link className="flex gap-2 items-center" to="/produtos">
+                Ver tudo <img className="w-5" src={ArrowRight2} alt="Seta" />
+              </Link>
+            }
+            content={<ProductListing preset="4x1" products={products} />}
+            />
             </div>
-          </div>
         </div>
 
         {/* Resumo */}
